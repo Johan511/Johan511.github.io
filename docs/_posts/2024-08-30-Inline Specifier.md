@@ -1,5 +1,5 @@
 ---
-title:  "GSOC-2023"
+title:  "Inline Specifier"
 mathjax: true
 layout: post
 ---
