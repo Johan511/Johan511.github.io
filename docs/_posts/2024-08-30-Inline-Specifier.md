@@ -1,5 +1,5 @@
 ---
-title:  "Inline Specifier"
+title:  "Inline-Specifier"
 mathjax: true
 layout: post
 ---
