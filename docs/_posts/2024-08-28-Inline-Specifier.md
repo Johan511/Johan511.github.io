@@ -23,6 +23,9 @@ Recommended:
 
 <br>
 
+
+
+
 To reiterate, the purpose of the `inline` specifier is not to inline a function call, but rather to allow multiple definitions of a function by changing it's symbol binding to weak
 
 Excerpt from cppref
