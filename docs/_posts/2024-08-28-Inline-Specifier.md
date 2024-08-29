@@ -4,9 +4,9 @@ layout: post
 ---
 
 # Understanding Inline
-Often during discussions with peers I see an incorrect understanding of what the `inline` specifier in C++ does, and I hope to clarify it with the following blog post
+Often, during discussions with peers, I notice a common misunderstanding of what the `inline` specifier in C++ does, and I hope to clarify it with the following blog post
 
-This post is mainly motivated by an interaction where I came across a session in my university where the speaker seemed to be confident that the purpose of the `inline` specifier was the tell the compiler to inline a function call which is incorrect.
+This post is motivated by a session at my university where the speaker incorrectly claimed that the purpose of the inline specifier is to instruct the compiler to inline a function call.
 
 This blog post is going to delve into how the `inline` specifier affects the compilation and linking of a function and how it interacts with `static` and `extern`
 
@@ -27,7 +27,7 @@ Recommended:
 
 To reiterate, the purpose of the `inline` specifier is not to inline a function call, but rather to allow multiple definitions of a function by changing it's symbol binding to weak
 
-Excerpt from cppref
+Excerpt from cppreference.com
 > Because the meaning of the keyword inline for functions came to mean "multiple definitions are permitted" rather than "inlining is preferred" since C++98, that meaning was extended to variables.
 
 Let us have a look at 3 files
@@ -96,9 +96,9 @@ b.cpp:(.text+0x0): multiple definition of `foo()'; /tmp/ccWL7RWW.o:a.cpp:(.text+
 collect2: error: ld returned 1 exit status
 ```
 
-And this is a major challenge is sharing header only libraries and forces library managers to separate header and source files.
+And this is a significant challenge in sharing header only libraries and forces library managers to separate header and source files.
 
-Now using the `inline` specifier on the function `foo` we will see how we are able to make this code work and shit out library `foo` as a header only library
+Now using the `inline` specifier on the function `foo` we will see how we are able to make this code work and ship out library `foo` as a header only library
 
 <table>
 <tr>
@@ -228,9 +228,9 @@ Because we used the command `g++ a.o b.o -o main` it would be the definition in 
 
 `g++ b.o a.o -o main` would lead to the definition in `b.o` being used
 
-Nevertheless, this is a piece of information a C++ programmer should be never try to make use of because the C++ standard specifies that all definitions of an `inline` specified function need to be identical and it should not matter which definition of the function is used.
+Nevertheless, this is information a C++ programmer should never attempt to rely on because the C++ standard specifies that all definitions of an `inline` specified function need to be identical and it should not matter which definition of the function is used.
 
-Excerpt from cppref
+Excerpt from cppreference.com
 > 1. There may be more than one definition of an inline function or variable(since C++17) in the program as long as each definition appears in a different translation unit and all definitions are identical.
 > 2. It must be declared inline in every translation unit.
 
