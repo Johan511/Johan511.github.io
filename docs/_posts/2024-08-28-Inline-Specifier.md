@@ -18,6 +18,9 @@ References:
 - https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf
 - https://linux.die.net/man/1/nm
 
+Recommended:
+- https://www.youtube.com/watch?v=HakSW8wIH8A
+
 <br>
 
 To reiterate, the purpose of the `inline` specifier is not to inline a function call, but rather to allow multiple definitions of a function by changing it's symbol binding to weak
