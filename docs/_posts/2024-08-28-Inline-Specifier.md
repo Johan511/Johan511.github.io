@@ -193,7 +193,7 @@ $ nm -C b.o
 
 `main` has address of 0, while address of `foo` is 0 because it is not yet set because it is a weak symbol, courtesy the `inline` specifier
 
-There is no address of `bar`, because we it is an undefined symbol
+There is no address of `bar`, because it is an undefined symbol
 
 </td>
 </tr>
@@ -222,7 +222,7 @@ Only one definition of `foo` exists, the linker chooses only one of the definiti
 
 **Which one does it choose?**
 
-It happens to choose the first 
+It happens to choose the first definition in comes across 
 
 Because we used the command `g++ a.o b.o -o main` it would be the definition in a.o
 
@@ -252,7 +252,7 @@ But I have unfortunately not been able to reproduce this error, please do feel f
 
 Before trying to understand how the `inline` specifier interacts with `static` and `extern` we will try to understand what `static` and `extern` are.
 
-`static` and `extern` are linkage specifiers which convey to the if the member has internal or external linkage.
+`static` and `extern` are linkage specifiers which convey to the compiler if the member has internal or external linkage.
 
 Members with internal linkage are only accessible from other scopes in the same translation unit, while members with external linkage are accessible from scopes in other translation units along with the same translation unit.
 
@@ -285,14 +285,14 @@ The lowercase `t` signifies that the symbol is not accessible form other transla
 
 By default global functions have external linkage, hence using the `extern` specifier has no difference.
 
-NOTE: `inline` is not a linkage specifier, hence like all global functions, `inline` functions also have external linkage. Hence, the capital `W`.
+NOTE: `inline` is not a linkage specifier, hence like all global functions, `inline` functions also have external linkage. Hence, the uppercase `W`.
 
 `static inline` specified functions have linkage identical to a `static` function.
 
 `extern inline` specific functions have linkage identical to an `inline` function.
 
 ### **Why use `static inline` over `static`?**
-Often header only libraries are annotate their functions with `static inline` over simply using `static` despite both having the same linkage.
+Often header only libraries annotate their functions with `static inline` over simply using `static` despite both having the same linkage.
 
 The reason for this has to do with the differences in the compilation phase.
 
