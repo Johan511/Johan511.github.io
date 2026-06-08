@@ -44,6 +44,6 @@ section[id] > header h1 {
 
 @media only screen and (max-width: 768px) {
   section[id] {
-    padding: 4rem 0; } }
+    padding: 5rem 2rem; } }
 
 /*# sourceMappingURL=custom.css.map */
