@@ -3,10 +3,10 @@ HUGO_BIN=hugo
 .PHONY: build demo release
 
 build:
-	$(HUGO_BIN) --themesDir=../.. --source=exampleSite
+	$(HUGO_BIN)
 
 demo:
-	$(HUGO_BIN) server -D --themesDir=../.. --source=exampleSite --bind 0.0.0.0
+	$(HUGO_BIN) server -D --bind 0.0.0.0
 
 release: build
-	rm -rf ./resources && cp -r ./exampleSite/resources ./resources
+	rm -rf ./resources && cp -r ./resources ./resources
