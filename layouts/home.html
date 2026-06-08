@@ -8,18 +8,6 @@
     </div>
   </section>
 
-  <!-- About section -->
-  {{ with .Site.GetPage "/about" }}
-  <section id="about" class="container page">
-    <article>
-      <header>
-        <h1 class="title">{{ .Title }}</h1>
-      </header>
-      {{ .Content }}
-    </article>
-  </section>
-  {{ end }}
-
   <!-- Blog posts section -->
   <section id="posts" class="container list">
     <header>
@@ -40,18 +28,6 @@
   <!-- Projects section -->
   {{ with .Site.GetPage "/projects" }}
   <section id="projects" class="container page">
-    <article>
-      <header>
-        <h1 class="title">{{ .Title }}</h1>
-      </header>
-      {{ .Content }}
-    </article>
-  </section>
-  {{ end }}
-
-  <!-- Contact section -->
-  {{ with .Site.GetPage "/contact" }}
-  <section id="contact" class="container page">
     <article>
       <header>
         <h1 class="title">{{ .Title }}</h1>

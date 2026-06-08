@@ -16,17 +16,22 @@ html {
   scroll-snap-align: start; }
 
 section[id] {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   scroll-snap-align: start;
-  padding: 3rem 0; }
+  padding: 6rem 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease; }
+
+section[id].visible {
+  opacity: 1;
+  transform: translateY(0); }
 
 section[id]:last-of-type {
-  padding-bottom: 6rem; }
-
-section[id="posts"] {
-  background: rgba(128, 128, 128, 0.04); }
-
-section[id="contact"] {
-  background: rgba(128, 128, 128, 0.04); }
+  padding-bottom: 8rem; }
 
 section[id] > article > header,
 section[id] > header {
@@ -39,6 +44,6 @@ section[id] > header h1 {
 
 @media only screen and (max-width: 768px) {
   section[id] {
-    padding: 2rem 0; } }
+    padding: 4rem 0; } }
 
 /*# sourceMappingURL=custom.css.map */

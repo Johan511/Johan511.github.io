@@ -22,24 +22,30 @@ html {
   scroll-snap-align: start;
 }
 
-// Sections
+// Each section is one full viewport — only one visible at a time
 section[id] {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   scroll-snap-align: start;
-  padding: 3rem 0;
+  padding: 6rem 0;
+
+  // Transition effect: fade + slide up on enter
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section[id].visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section[id]:last-of-type {
-  padding-bottom: 6rem;
+  padding-bottom: 8rem;
 }
 
-// Alternating backgrounds
-section[id="posts"] {
-  background: rgba(128, 128, 128, 0.04);
-}
-
-section[id="contact"] {
-  background: rgba(128, 128, 128, 0.04);
-}
 
 // Tighter section titles
 section[id] > article > header,
@@ -56,6 +62,6 @@ section[id] > header h1 {
 // Mobile
 @media only screen and (max-width: 768px) {
   section[id] {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 }
