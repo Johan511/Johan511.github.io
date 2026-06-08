@@ -1,0 +1,63 @@
+{{ define "content" }}
+  <!-- Author hero section -->
+  <section class="container centered hero">
+    <div class="about">
+      {{ partialCached "home/avatar.html" . }}
+      {{ partialCached "home/author.html" . }}
+      {{ partialCached "home/social.html" . }}
+    </div>
+  </section>
+
+  <!-- About section -->
+  {{ with .Site.GetPage "/about" }}
+  <section id="about" class="container page">
+    <article>
+      <header>
+        <h1 class="title">{{ .Title }}</h1>
+      </header>
+      {{ .Content }}
+    </article>
+  </section>
+  {{ end }}
+
+  <!-- Blog posts section -->
+  <section id="posts" class="container list">
+    <header>
+      <h1 class="title">Blog</h1>
+    </header>
+    {{ with where .Site.RegularPages "Section" "posts" }}
+    <ul>
+      {{ range . }}
+      <li>
+        <span class="date">{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</span>
+        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </section>
+
+  <!-- Projects section -->
+  {{ with .Site.GetPage "/projects" }}
+  <section id="projects" class="container page">
+    <article>
+      <header>
+        <h1 class="title">{{ .Title }}</h1>
+      </header>
+      {{ .Content }}
+    </article>
+  </section>
+  {{ end }}
+
+  <!-- Contact section -->
+  {{ with .Site.GetPage "/contact" }}
+  <section id="contact" class="container page">
+    <article>
+      <header>
+        <h1 class="title">{{ .Title }}</h1>
+      </header>
+      {{ .Content }}
+    </article>
+  </section>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,61 @@
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+// Hide nav bar
+.navigation {
+  display: none;
+}
+
+// Fix: .content uses flex row by default, need column
+.content {
+  flex-direction: column;
+}
+
+// Hero section
+.centered.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+// Sections
+section[id] {
+  scroll-snap-align: start;
+  padding: 3rem 0;
+}
+
+section[id]:last-of-type {
+  padding-bottom: 6rem;
+}
+
+// Alternating backgrounds
+section[id="posts"] {
+  background: rgba(128, 128, 128, 0.04);
+}
+
+section[id="contact"] {
+  background: rgba(128, 128, 128, 0.04);
+}
+
+// Tighter section titles
+section[id] > article > header,
+section[id] > header {
+  margin-top: 0 !important;
+  margin-bottom: 2.4rem !important;
+}
+
+section[id] > article > header h1,
+section[id] > header h1 {
+  font-size: 3.2rem;
+}
+
+// Mobile
+@media only screen and (max-width: 768px) {
+  section[id] {
+    padding: 2rem 0;
+  }
+}
