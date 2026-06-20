@@ -72,11 +72,14 @@ section[id] > header h1 {
   grid-template-columns: 1fr 1fr;
   gap: 1.6rem;
   margin: 2rem 0;
+  // Break out of .container (max-width: 90rem) to give code more room
+  width: 100vw;
+  max-width: 130rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
 
   .code-pane {
-    display: flex;
-    flex-direction: column;
-    min-width: 0; // allow <pre> to shrink below its intrinsic width
+    min-width: 0;
   }
 
   .code-label {
@@ -88,12 +91,15 @@ section[id] > header h1 {
 
   pre {
     margin: 0;
-    flex: 1;
-    overflow-x: auto;
     font-size: 1.3rem;
+    overflow-x: auto;
   }
 
   @media only screen and (max-width: 768px) {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    transform: none;
     grid-template-columns: 1fr;
   }
 }

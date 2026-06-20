@@ -50,10 +50,12 @@ section[id] > header h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.6rem;
-  margin: 2rem 0; }
+  margin: 2rem 0;
+  width: 100vw;
+  max-width: 130rem;
+  margin-left: 50%;
+  transform: translateX(-50%); }
   .code-comparison .code-pane {
-    display: flex;
-    flex-direction: column;
     min-width: 0; }
   .code-comparison .code-label {
     font-weight: 600;
@@ -62,11 +64,14 @@ section[id] > header h1 {
     color: var(--font-color, #222); }
   .code-comparison pre {
     margin: 0;
-    flex: 1;
-    overflow-x: auto;
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    overflow-x: auto; }
   @media only screen and (max-width: 768px) {
     .code-comparison {
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+      transform: none;
       grid-template-columns: 1fr; } }
 
 /*# sourceMappingURL=custom.css.map */
