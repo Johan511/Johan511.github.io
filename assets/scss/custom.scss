@@ -65,3 +65,35 @@ section[id] > header h1 {
     padding: 5rem 2rem;
   }
 }
+
+// --- Side-by-side code comparison ---
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin: 2rem 0;
+
+  .code-pane {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // allow <pre> to shrink below its intrinsic width
+  }
+
+  .code-label {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: var(--font-color, #222);
+  }
+
+  pre {
+    margin: 0;
+    flex: 1;
+    overflow-x: auto;
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}

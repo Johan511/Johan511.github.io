@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#555"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-blue-left" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M10,0 L0,5 L10,10 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- ====== uROS Application 1 ====== -->
+  <rect x="20" y="20" width="380" height="115" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="210" y="48" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e40af">uROS Application</text>
+  <text x="210" y="66" text-anchor="middle" font-size="11" fill="#6b7280">Minimal / Resource constrained environment</text>
+  <rect x="50" y="82" width="320" height="40" rx="6" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="210" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Application Node</text>
+  <text x="210" y="115" text-anchor="middle" font-size="10" fill="#64748b">uros publisher, subscriber, executor</text>
+
+  <!-- ====== uROS Application 2 ====== -->
+  <rect x="20" y="155" width="380" height="115" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="210" y="183" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e40af">uROS Application</text>
+  <text x="210" y="201" text-anchor="middle" font-size="11" fill="#6b7280">Minimal / Resource constrained environment</text>
+  <rect x="50" y="217" width="320" height="40" rx="6" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="210" y="235" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Application Node</text>
+  <text x="210" y="250" text-anchor="middle" font-size="10" fill="#64748b">uros publisher, subscriber, executor</text>
+
+  <!-- ====== uROS Application 3 ====== -->
+  <rect x="20" y="290" width="380" height="115" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="210" y="318" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e40af">uROS Application</text>
+  <text x="210" y="336" text-anchor="middle" font-size="11" fill="#6b7280">Minimal / Resource constrained environment</text>
+  <rect x="50" y="352" width="320" height="40" rx="6" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="210" y="370" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Application Node</text>
+  <text x="210" y="385" text-anchor="middle" font-size="10" fill="#64748b">uros publisher, subscriber, executor</text>
+
+  <!-- ====== uROS Agent ====== -->
+  <rect x="480" y="90" width="360" height="260" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="660" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="#9a3412">uROS Agent</text>
+  <text x="660" y="136" text-anchor="middle" font-size="11" fill="#6b7280">Resource abundant host running the full DDS service</text>
+  <rect x="510" y="180" width="300" height="50" rx="6" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+  <text x="660" y="201" text-anchor="middle" font-size="13" font-weight="bold" fill="#7c2d12">Micro XRCE-DDS Agent</text>
+  <text x="660" y="219" text-anchor="middle" font-size="10" fill="#64748b">Handles communication between publishers and subscribers</text>
+
+  <!-- ====== ARROWS: App 1 ↔ Agent ====== -->
+  <path d="M370,102 L480,145" stroke="#3b82f6" stroke-width="2" fill="none" marker-start="url(#arrow-blue-left)" marker-end="url(#arrow-blue)"/>
+  <text x="425" y="116" text-anchor="middle" font-size="10" fill="#1e40af" font-weight="bold">transport</text>
+
+  <!-- ====== ARROWS: App 2 ↔ Agent ====== -->
+  <path d="M370,237 L480,205" stroke="#3b82f6" stroke-width="2" fill="none" marker-start="url(#arrow-blue-left)" marker-end="url(#arrow-blue)"/>
+  <text x="425" y="213" text-anchor="middle" font-size="10" fill="#1e40af" font-weight="bold">transport</text>
+
+  <!-- ====== ARROWS: App 3 ↔ Agent ====== -->
+  <path d="M370,372 L480,265" stroke="#3b82f6" stroke-width="2" fill="none" marker-start="url(#arrow-blue-left)" marker-end="url(#arrow-blue)"/>
+  <text x="425" y="312" text-anchor="middle" font-size="10" fill="#1e40af" font-weight="bold">transport</text>
+</svg>

@@ -46,4 +46,27 @@ section[id] > header h1 {
   section[id] {
     padding: 5rem 2rem; } }
 
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin: 2rem 0; }
+  .code-comparison .code-pane {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; }
+  .code-comparison .code-label {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: var(--font-color, #222); }
+  .code-comparison pre {
+    margin: 0;
+    flex: 1;
+    overflow-x: auto;
+    font-size: 1.3rem; }
+  @media only screen and (max-width: 768px) {
+    .code-comparison {
+      grid-template-columns: 1fr; } }
+
 /*# sourceMappingURL=custom.css.map */

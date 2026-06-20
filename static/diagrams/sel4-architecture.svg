@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" width="920" height="470">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      .outer-label { font-size: 28px; font-weight: bold; fill: #1a1a2e; }
+      .box-title { font-size: 20px; font-weight: 700; fill: #ffffff; }
+      .box-subtitle { font-size: 14px; fill: rgba(255,255,255,0.88); }
+      .box-detail { font-size: 13px; fill: rgba(255,255,255,0.70); }
+      .title { font-size: 24px; font-weight: bold; fill: #1a1a2e; }
+    </style>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="5" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrowRight" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <path d="M0,0 L6,2.5 L0,5 Z" fill="#444"/>
+    </marker>
+    <marker id="arrowLeft" markerWidth="6" markerHeight="5" refX="0" refY="2.5" orient="auto">
+      <path d="M6,0 L0,2.5 L6,5 Z" fill="#444"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="920" height="470" fill="#f8f9fa" rx="8"/>
+
+  <!-- Title -->
+  <text x="460" y="36" text-anchor="middle" class="title">seL4-Based System Architecture</text>
+
+  <!-- Outer seL4 box -->
+  <rect x="20" y="55" width="880" height="400" rx="12" fill="#e8f4f8" stroke="#0d7377" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="460" y="82" text-anchor="middle" class="outer-label">seL4 Microkernel</text>
+
+  <!-- ===== Linux VM ===== -->
+  <rect x="45" y="135" width="210" height="235" rx="8" fill="#4a90d9" filter="url(#shadow)"/>
+  <text x="150" y="177" text-anchor="middle" class="box-title">Linux VM</text>
+  <line x1="65" y1="193" x2="235" y2="193" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/>
+
+  <text x="150" y="225" text-anchor="middle" class="box-subtitle">Runs uROS agent</text>
+
+  <text x="150" y="255" text-anchor="middle" class="box-detail">Communicates with all</text>
+  <text x="150" y="278" text-anchor="middle" class="box-detail">uROS applications and</text>
+  <text x="150" y="301" text-anchor="middle" class="box-detail">distributes messages</text>
+
+  <!-- ===== VMM ===== -->
+  <rect x="255" y="160" width="175" height="195" rx="8" fill="#e67e22" filter="url(#shadow)"/>
+  <text x="343" y="197" text-anchor="middle" class="box-title">VMM</text>
+  <line x1="263" y1="213" x2="423" y2="213" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/>
+
+  <text x="343" y="235" text-anchor="middle" class="box-subtitle">Virtual Machine Monitor</text>
+  <text x="343" y="270" text-anchor="middle" class="box-detail" font-size="12">Forwards messages</text>
+  <text x="343" y="290" text-anchor="middle" class="box-detail" font-size="12">between spsc queue</text>
+  <text x="343" y="310" text-anchor="middle" class="box-detail" font-size="12">and virtio queue</text>
+
+  <!-- ===== uROS Application ===== -->
+  <rect x="630" y="105" width="245" height="305" rx="8" fill="#27ae60" filter="url(#shadow)"/>
+  <text x="753" y="142" text-anchor="middle" class="box-title">Protected Domain</text>
+  <line x1="653" y1="158" x2="853" y2="158" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/>
+
+  <text x="753" y="185" text-anchor="middle" class="box-subtitle">uROS Application</text>
+
+  <text x="753" y="212" text-anchor="middle" class="box-detail">Contains the uROS application</text>
+  <text x="753" y="230" text-anchor="middle" class="box-detail">(publisher/subscriber and executor)</text>
+  <text x="753" y="259" text-anchor="middle" class="box-detail">Uses custom transport which</text>
+  <text x="753" y="277" text-anchor="middle" class="box-detail">reads/writes ETH packet</text>
+  <text x="753" y="295" text-anchor="middle" class="box-detail">into spsc queue</text>
+  <text x="753" y="326" text-anchor="middle" class="box-detail">On channel notification from VMM</text>
+  <text x="753" y="344" text-anchor="middle" class="box-detail">we spin some on the executor</text>
+  <text x="753" y="362" text-anchor="middle" class="box-detail">read packets and act on them</text>
+
+  <!-- ===== VMM ↔ Linux VM ===== -->
+  <text x="255" y="270" font-size="11" font-weight="600" fill="#444" text-anchor="middle">virtio</text>
+  <line x1="230" y1="276" x2="280" y2="276" stroke="#444" stroke-width="2" marker-start="url(#arrowLeft)" marker-end="url(#arrowRight)"/>
+
+  <!-- ===== VMM ↔ uROS App ===== -->
+  <text x="530" y="215" font-size="12" font-weight="600" fill="#444" text-anchor="middle">Bidirectional spsc queue</text>
+  <text x="530" y="230" font-size="12" font-weight="600" fill="#444" text-anchor="middle">and seL4 channel notify</text>
+  <line x1="427" y1="238" x2="627" y2="238" stroke="#444" stroke-width="2" marker-start="url(#arrowLeft)" marker-end="url(#arrowRight)"/>
+  <text x="530" y="256" font-size="11" fill="#444" text-anchor="middle">Network packets between</text>
+  <text x="530" y="272" font-size="11" fill="#444" text-anchor="middle">agent and application</text>
+</svg>
